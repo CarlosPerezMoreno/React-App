@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
+
+const APIURL = 'https://api.giphy.com/v1/gifs/search?api_key=AFw1aZYdgrVWLPwT6m7yccBNYyHr13Jf&q=one piece&limit=25&offset=0&rating=G&lang=en'
+
 function App() {
+  const [gifs, setGif] = useState(GIFS);
+
+  
+  useEffect(function() {
+    //setGif(DIFFERENT_GIFFS)
+    fetch(APIURL)
+      .then(res = res.json())
+      .then(response => {
+        const {data} = response
+      })
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-content">
+          {
+            gifs.map(x => <img src={x} />)
+            }
+      </section>
     </div>
   );
 }
