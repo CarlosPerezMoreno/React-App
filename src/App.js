@@ -12,12 +12,8 @@ function App() {
     <div className='App'>
       <section className='App-content'>
           <Link to='/'>
-            <img className='App-logo' alt='Giffy logo' src='/logo.png' />
+            <img className='App-logo' alt='Giffy logo' src='./mylogo.png' />
           </Link>
-
-          <Link to='/gif/luffy'> Luffy </Link>
-          <Link to='/gif/zoro'> Zoro </Link>
-          <Link to='/gif/ussop'> Ussop </Link>
 
           <Route 
             component={Home}
