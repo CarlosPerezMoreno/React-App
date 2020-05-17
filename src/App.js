@@ -13,7 +13,7 @@ export default function App() {
   return (
     <StaticContext.Provider value={{
       name: 'CarlosP', 
-      ojete: true}}
+      man: true}}
     >
       <div className='App'>
         <section className='App-content'>
