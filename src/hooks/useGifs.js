@@ -10,7 +10,7 @@ export function useGifs( {keyword} = {keyword: null} ) {
         setLoading(true)
 
         //Localstorage's keyword recovery
-        const keywordToUse = keyword || localStorage.getItem('lastKeyword', keyword)
+        const keywordToUse = keyword || localStorage.getItem('lastKeyword', keyword) || 'random'
         getGifs( {keyword: keywordToUse} )
           .then(gifs => {
               setGifs(gifs)
