@@ -3,23 +3,58 @@
 }
 
 .App-logo {
-  object-fit: contain;
-  height: 250px;
-  padding-top: 5rem;
-  padding-bottom: 1rem;
+  margin: 10px auto;
+  padding: 20px 0;
+  width: 144px;
+}
+
+.App-logo img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.App-title {
+  color: white;
 }
 
 .App-content {
-  background: url(./backg1.jpg) no-repeat fixed center;
+  background: url('./backg2.jpg') center fixed no-repeat;
   background-size: cover;
-  color: rgb(0, 0, 0);
+  color: white;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-
+  min-height: 100vh;
+  padding: 16px;
+  text-align: left;
 }
 
-.App-content ul li{
-  color: black;
+/*----------*/
+
+.App-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
+.App-results {
+  flex-shrink: 2;
+}
+
+.App-category {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+@media screen and (min-width: 640px){
+  .App-main{
+    flex-direction: initial;
+  }
+
+  .App-category{
+    padding: 0 2em;
+    position: sticky;
+    top: 0;
+    width: 40%;
+  }
+}
