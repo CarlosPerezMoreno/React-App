@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useLocation } from 'wouter'
-import {useGifs} from '../../hooks/useGifs'
-import ListOfGifs from '../../components/ListOfGifs'
-import TrendingSearches from '../../components/TrendingSearchers'
+import {useGifs} from 'hooks/useGifs'
+import ListOfGifs from 'components/ListOfGifs'
+import TrendingSearches from 'components/TrendingSearchers'
 
 
 export default function Home() {
