@@ -18,6 +18,9 @@ export default function LazyTrending () {
   useEffect(function () {
     const onChange = (entries) => {
       const el = entries[0]
+      if (el.isIntersecting) {
+        setShow(true)
+      }
     }
 
     const observer = new IntersectionObserver(onChange, {
