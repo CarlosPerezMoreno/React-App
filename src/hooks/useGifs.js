@@ -1,26 +1,42 @@
-import {useContext, useState, useEffect} from 'react'
-import getGifs from 'services/getGifs'
-import GifsContext from 'context/GifsContext'
+import {useContext, useEffect, useState} from 'react'
+import getGifs from '../services/getGifs'
+import GifsContext from '../context/GifsContext'
 
-export function useGifs( {keyword} = {keyword: null} ) {
-    const [loading, setLoading] = useState(false)
-    const {gifs, setGifs} = useContext(GifsContext)
-        
-    useEffect(function () {
-        setLoading(true)
+const INITIAL_PAGE = 0
 
-        //Localstorage's keyword recovery
-        const keywordToUse = keyword || localStorage.getItem('lastKeyword', keyword) || 'random'
-        getGifs( {keyword: keywordToUse} )
-          .then(gifs => {
-              setGifs(gifs)
-              setLoading(false)
+export function useGifs ({ keyword } = { keyword: null }) {
+  const [loading, setLoading] = useState(false)
+  const [loadingNextPage, setLoadingNextPage] = useState(false)
 
-              //Localstorage's keyword saved
-              localStorage.setItem('lastKeyword', keyword)
-          })
-    }, [keyword, setGifs])
+  const [page, setPage] = useState(INITIAL_PAGE)
+  const {gifs, setGifs} = useContext(GifsContext)
 
-    return {loading, gifs}
+  // retrieving keyword
+  const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
+
+  useEffect(function () {
+    setLoading(true)
+
+    getGifs({ keyword: keywordToUse })
+      .then(gifs => {
+        setGifs(gifs)
+        setLoading(false)
+        // saving keyword in localStorage
+        localStorage.setItem('lastKeyword', keyword)
+      })
+  }, [keyword, keywordToUse, setGifs])
+
+  useEffect(function () {
+    if (page === INITIAL_PAGE) return
+
+    setLoadingNextPage(true)
+
+    getGifs({ keyword: keywordToUse, page })
+      .then(nextGifs => {
+        setGifs(prevGifs => prevGifs.concat(nextGifs))
+        setLoadingNextPage(false)
+      })
+  }, [keywordToUse, page, setGifs])
+
+  return {loading, loadingNextPage, gifs, setPage}
 }
-

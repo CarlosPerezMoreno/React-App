@@ -18,8 +18,7 @@
 }
 
 .App-content {
-  background: url('./backg2.jpg') center fixed no-repeat;
-  background-size: cover;
+  background-color: #121212;
   color: white;
   display: flex;
   flex-direction: column;

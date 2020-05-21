@@ -18,8 +18,11 @@ export default function App() {
       <div className='App'>
         <section className='App-content'>
           <Link to='/'>
-            <img className='App-logo' alt='Giffy logo' src='./mylogo.png' />
+              <figure className='App-logo'>
+              <img alt='Giffy logo' src='./mylogo.png' />
+              </figure>
           </Link>
+          
             <GifsContextProvider>
               <Route 
                 component={Home}
