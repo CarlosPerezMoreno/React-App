@@ -9,9 +9,9 @@
 }
 
 .ListOfGifs-item {
-  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  -webkit-column-break-inside: avoid; /* Chrome, Opera, Safari */
   page-break-inside: avoid; /* Firefox */
-  break-inside: avoid; /* IE 10+ */
+  break-inside: avoid; /* IE 10 or + */
   background-color: #eee;
   display: inline-block;
   width: 100%;

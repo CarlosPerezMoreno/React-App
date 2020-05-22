@@ -48,8 +48,18 @@ form {
 }
 
 input[type=text] {
-  border-radius: 0 10px 10px 0;
+  border-radius: 40px 40px 40px 40px;
   font-size: 16px;
   border: none;
   padding: 4px 16px;
+}
+
+.Next-page-button {
+  background: rgb(255, 0, 0);
+  border: 0;
+  color: #fff;
+  padding: 8px 16px;
+  margin: auto;
+  font-size: 32px;
+  border-radius: 10px 10px 10px 10px;
 }

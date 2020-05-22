@@ -21,8 +21,9 @@ export default function SearchResults ({ params }) {
       </>
       
     }
-    <button onClick={handleNextPage}>Get next page</button>
-    
+    {' '}
+    <span></span>
+    <button className='Next-page-button' onClick={handleNextPage}>Go to the next page</button>
   </>
   
 }
