@@ -1,21 +1,23 @@
 import React, { useState } from "react";
+import css from "./SearchForm.module.css";
 
-function SearchForm({ onSubmit }) {
+export default function SearchForm({ onSubmit }) {
   const [keyword, setKeyword] = useState("");
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    // go to other route
-    onSubmit({ keyword });
-  };
 
   const handleChange = (evt) => {
     setKeyword(evt.target.value);
   };
 
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onSubmit({ keyword });
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={css["c-search"]}>
+      <button className={css["c-search-btn"]}>Buscar</button>
       <input
+        className={css["c-search-input"]}
         placeholder="Search a gif here..."
         onChange={handleChange}
         type="text"
@@ -24,5 +26,3 @@ function SearchForm({ onSubmit }) {
     </form>
   );
 }
-
-export default React.memo(SearchForm);

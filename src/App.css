@@ -14,13 +14,17 @@
 }
 
 .App-title {
-  color: white;
+  color: var(--theme-body-txt);
+  margin-top: 0.6rem;
 }
 
 .App-content {
-  background: url('./backg2.jpg') center fixed no-repeat;
+  background: url("./backg2.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  color: white;
+  color: var(--theme-body-txt);
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -37,8 +41,16 @@
   align-items: flex-start;
 }
 
+.App-wrapper {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 0.5em;
+}
+
 .App-results {
   flex-shrink: 2;
+  width: 100%;
 }
 
 .App-category {
@@ -46,15 +58,15 @@
   width: 100%;
 }
 
-@media screen and (min-width: 640px){
-  .App-main{
+@media screen and (min-width: 55rem) {
+  .App-main {
     flex-direction: initial;
   }
 
-  .App-category{
-    padding: 0 2em;
+  .App-category {
     position: sticky;
-    top: 0;
+    top: var(--search-size-mx-h);
     width: 40%;
+    max-width: 300px;
   }
 }
